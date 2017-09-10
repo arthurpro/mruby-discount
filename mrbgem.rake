@@ -27,8 +27,8 @@ MRuby::Gem::Specification.new('mruby-discount') do |spec|
   if ! File.exists? "#{discount_dir}/libmarkdown.a"
     Dir.chdir discount_dir do
       e = {}
-      run_command e, './configure.sh'
-      run_command e, 'CFLAGS=-fPIC make'
+      run_command e, 'CC="cc -fPIC" ./configure.sh'
+      run_command e, 'make'
     end
   end
 
